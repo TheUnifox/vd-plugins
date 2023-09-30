@@ -47,6 +47,9 @@ export default {
                         Expires: <t:${new Date(createInvite.expires_at).getTime() / 1000}:R> ·
                         uuid: ${uuid} ·
                         invite: ${createInvite.body} ·
+                        api: ${api} ·
+                        body: ${res.body} ·
+                        suggestions: ${res.body.invite_suggestions}
                     `.trim().replace(/\s+/g, " ")
 
                     ClydeUtils.sendBotMessage(ctx.channel.id, message);
