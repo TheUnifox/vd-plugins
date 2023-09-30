@@ -46,7 +46,7 @@ export default {
                         https://discord.gg/${createInvite.code} ·
                         Expires: <t:${new Date(createInvite.expires_at).getTime() / 1000}:R> ·
                         uuid: ${uuid} ·
-                        invite: ${createInvite} ·
+                        invite: ${createInvite.body} ·
                     `.trim().replace(/\s+/g, " ")
 
                     ClydeUtils.sendBotMessage(ctx.channel.id, message);
