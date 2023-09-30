@@ -3,8 +3,8 @@
     "description": "Lets you make invite links for people to add you as their friend on Discord.",
     "authors": [
         {
-            "name": "nikosszzz",
-            "id": "327065865201909762"
+            "name": "theunifox",
+            "id": "448846699692032006"
         }
     ],
     "main": "src/index.ts",
