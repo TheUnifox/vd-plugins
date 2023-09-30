@@ -2,7 +2,7 @@
                         https://discord.gg/${i.code} \xB7
                         Expires: <t:${new Date(i.expires_at).getTime()/1e3}:R> \xB7
                         uuid: ${s} \xB7
-                        invite: ${i} \xB7
+                        invite: ${i.body} \xB7
                     `.trim().replace(/\s+/g," ");e.sendBotMessage(n.channel.id,v)}})),r.push(d.registerCommand({name:"view invites",displayName:"view invites",description:"View your current friend invite links that you've made.",displayDescription:"View your current friend invite links that you've made.",type:1,applicationId:-1,execute:async function(p,n){const s=(await c.getAllFriendInvites()).map(function(i){return`_https://discord.gg/${i.code}_ \xB7
                     Expires: <t:${new Date(i.expires_at).getTime()/1e3}:R> \xB7
                     Times used: \`${i.uses}/${i.max_uses}\``.trim().replace(/\s+/g," ")});e.sendBotMessage(n.channel.id,s.join(`
