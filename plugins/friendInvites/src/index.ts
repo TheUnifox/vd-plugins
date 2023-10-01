@@ -11,6 +11,7 @@ export default {
             const inviteModule = findByProps("getAllFriendInvites");
             const api = findByProps("get", "post")
 
+
             commands.push(registerCommand({
                 name: "invite create",
                 displayName: "invite create",
@@ -33,14 +34,15 @@ export default {
                             },
                             phone_contact_methods_count: 1
                         }
-                    }).then(res =>
+                    }).then(res => {
+                        const response = res
                         inviteModule.createFriendInvite({
                             code: res.body.invite_suggestions[0][3],
                             recipient_phone_number_or_email: uuid,
                             contact_visibility: 1,
                             filter_visibilities: [],
                             filtered_invite_suggestions_index: 1
-                        })
+                        })}
                     );
                     const message = `
                         https://discord.gg/${createInvite.code} ·
@@ -48,8 +50,8 @@ export default {
                         uuid: ${uuid} ·
                         invite: ${createInvite.body} ·
                         api: ${api} ·
-                        body: ${res.body} ·
-                        suggestions: ${res.body.invite_suggestions}
+                        body: ${response.body} ·
+                        suggestions: ${response.body.invite_suggestions}
                     `.trim().replace(/\s+/g, " ")
 
                     ClydeUtils.sendBotMessage(ctx.channel.id, message);
