@@ -34,15 +34,15 @@ export default {
                             },
                             phone_contact_methods_count: 1
                         }
-                    }).then(res => {
-                        const response = res
+                    }).then(res => 
+                        
                         inviteModule.createFriendInvite({
                             code: res.body.invite_suggestions[0][3],
                             recipient_phone_number_or_email: uuid,
                             contact_visibility: 1,
                             filter_visibilities: [],
                             filtered_invite_suggestions_index: 1
-                        })}
+                        })
                     );
 
                     logger.log(createInvite)
@@ -52,9 +52,9 @@ export default {
                         Expires: <t:${new Date(createInvite.expires_at).getTime() / 1000}:R> ·
                         uuid: ${uuid} ·
                         invite: ${createInvite.body} ·
-                        api: ${api} ·
+                        api: ${api} · /*
                         body: ${response.body} ·
-                        suggestions: ${response.body.invite_suggestions}
+                        suggestions: ${response.body.invite_suggestions} */
                     `.trim().replace(/\s+/g, " ")
 
                     logger.log(message)
