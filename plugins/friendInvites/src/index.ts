@@ -44,6 +44,9 @@ export default {
                             filtered_invite_suggestions_index: 1
                         })}
                     );
+
+                    logger.log(createInvite)
+                    
                     const message = `
                         https://discord.gg/${createInvite.code} ·
                         Expires: <t:${new Date(createInvite.expires_at).getTime() / 1000}:R> ·
@@ -53,6 +56,8 @@ export default {
                         body: ${response.body} ·
                         suggestions: ${response.body.invite_suggestions}
                     `.trim().replace(/\s+/g, " ")
+
+                    logger.log(message)
 
                     ClydeUtils.sendBotMessage(ctx.channel.id, message);
                 }
